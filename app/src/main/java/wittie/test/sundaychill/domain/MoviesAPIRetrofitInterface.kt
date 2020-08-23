@@ -7,6 +7,7 @@ import wittie.test.sundaychill.model.ListOfMoviesResponse
 import wittie.test.sundaychill.model.MovieResponse
 
 val BASE_URL = "https://api.themoviedb.org/3/movie/"
+val IMAGE_URL = "https://image.tmdb.org/t/p/w780/"
 val API_KEY = "5e58bc24fc9938ffc01414811f7353fa"
 
 interface MoviesAPIRetrofitInterface {

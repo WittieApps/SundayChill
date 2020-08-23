@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/app_margin_half"
-    android:layout_marginVertical="@dimen/app_margin">
+    android:layout_marginHorizontal="@dimen/app_margin"
+    android:layout_marginVertical="@dimen/app_margin_half">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/movieItemConstraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
 
         <ImageView
             android:id="@+id/movieItemImageView"
@@ -27,8 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/app_margin_half"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/movieItemImageView"
             app:layout_constraintEnd_toStartOf="@id/movieItemRateTextView"
+            app:layout_constraintStart_toEndOf="@id/movieItemImageView"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Movie Title" />
 
