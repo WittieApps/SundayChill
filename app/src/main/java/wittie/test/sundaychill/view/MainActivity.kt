@@ -1,13 +1,15 @@
-package wittie.test.sundaychill
+package wittie.test.sundaychill.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import wittie.test.sundaychill.domain.BASE_URL
+import wittie.test.sundaychill.domain.MoviesAPIRetrofitInterface
+import wittie.test.sundaychill.R
 
 
 class MainActivity : AppCompatActivity() {

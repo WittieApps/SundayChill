@@ -1,4 +1,4 @@
-package wittie.test.sundaychill
+package wittie.test.sundaychill.model
 
 class MovieResponse (
     val id: Int,
