@@ -1,5 +1,6 @@
 package wittie.test.sundaychill.domain
 
+import wittie.test.sundaychill.model.MovieDetailRepresentation
 import wittie.test.sundaychill.model.MovieRepresentation
 import wittie.test.sundaychill.model.MovieResponse
 

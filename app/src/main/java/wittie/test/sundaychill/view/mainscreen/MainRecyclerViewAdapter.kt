@@ -1,10 +1,11 @@
-package wittie.test.sundaychill.view
+package wittie.test.sundaychill.view.mainscreen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import wittie.test.sundaychill.R
 import wittie.test.sundaychill.model.MovieRepresentation
+import wittie.test.sundaychill.view.OnListItemClickedInterface
 
 class MainRecyclerViewAdapter(private val onListItemClickedInterface: OnListItemClickedInterface)
     : RecyclerView.Adapter<MainListItemViewHolder>() {

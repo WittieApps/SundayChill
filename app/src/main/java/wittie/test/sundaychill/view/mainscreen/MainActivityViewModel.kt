@@ -1,4 +1,4 @@
-package wittie.test.sundaychill.view
+package wittie.test.sundaychill.view.mainscreen
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -35,13 +35,6 @@ class MainActivityViewModel(
         movieListLiveData.postValue(movieListLiveData.value?.filter {
             it.title.contains("Lord of the Rings")
         })
-    }
-
-    fun loadMovieWithId(id: Int) {
-        viewModelScope.launch(backgroundCoroutineContext) {
-            val movieById = moviesAPIRetrofitInterface.getMovieById(id).toMovieRepresentation()
-            movieLiveData.postValue(movieById)
-        }
     }
 
     fun loadTopRatedMovies() {

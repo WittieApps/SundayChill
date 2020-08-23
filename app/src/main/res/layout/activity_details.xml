@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.detailsscreen.DetailsActivity">
+
+    <ImageView
+        android:id="@+id/detailsImageView"
+        android:layout_width="@dimen/details_screen_image_size"
+        android:layout_height="@dimen/details_screen_image_size"
+        android:layout_margin="@dimen/app_margin"
+        android:contentDescription="@string/cd_movie_list_item"
+        android:src="@drawable/ic_default_image_16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/detailsRateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/app_margin_double"
+        android:textSize="16sp"
+        app:drawableStartCompat="@drawable/ic_star_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="3.5" />
+
+
+    <TextView
+        android:id="@+id/homePageTextTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/app_margin"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias=".75"
+        app:layout_constraintTop_toTopOf="@id/detailsImageView"
+        app:layout_constraintStart_toEndOf="@id/detailsImageView"
+        app:layout_constraintBottom_toBottomOf="@id/detailsImageView"
+        tools:text="@string/app_name" />
+
+    <TextView
+        android:id="@+id/detailsTextTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/app_margin"
+        android:layout_marginTop="@dimen/app_margin_double"
+        android:layout_marginBottom="@dimen/app_margin"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailsImageView"
+        tools:text="@string/app_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

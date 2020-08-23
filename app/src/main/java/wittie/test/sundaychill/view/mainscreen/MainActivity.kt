@@ -1,17 +1,20 @@
-package wittie.test.sundaychill.view
+package wittie.test.sundaychill.view.mainscreen
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import wittie.test.sundaychill.R
 import wittie.test.sundaychill.model.MovieRepresentation
+import wittie.test.sundaychill.view.OnListItemClickedInterface
+import wittie.test.sundaychill.view.detailsscreen.DetailsActivity
 import kotlin.LazyThreadSafetyMode.NONE
 
+const val ARGS_MOVIE_ID = "ARGS_MOVIE_ID"
 
 class MainActivity : AppCompatActivity(), OnListItemClickedInterface {
 
@@ -28,17 +31,8 @@ class MainActivity : AppCompatActivity(), OnListItemClickedInterface {
 
         mainSwipeRefreshLayout.setOnRefreshListener(viewModel::loadTopRatedMovies)
 
-        viewModel.movieLiveData.observe(this, { movie ->
-            Toast.makeText(
-                this,
-                "Movie: ${movie.title} successfully downloaded",
-                Toast.LENGTH_SHORT
-            ).show()
-        })
-
         viewModel.movieListLiveData.observe(this, ::onListOfMoviesDownloaded)
 
-        //viewModel.loadMovieWithId(550)
         viewModel.loadTopRatedMovies()
     }
 
@@ -48,7 +42,9 @@ class MainActivity : AppCompatActivity(), OnListItemClickedInterface {
     }
 
     override fun onListItemClicked(movieId: Int) {
-        Toast.makeText(this, "Clicked movie $movieId", Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this, DetailsActivity::class.java).apply {
+            putExtra(ARGS_MOVIE_ID, movieId)
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

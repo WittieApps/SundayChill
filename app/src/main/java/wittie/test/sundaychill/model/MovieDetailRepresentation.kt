@@ -1,11 +1,10 @@
 package wittie.test.sundaychill.model
 
-class MovieResponse(
+class MovieDetailRepresentation (
     val id: Int,
-    val homepage: String,
-    val original_language: String,
     val title: String,
     val overview: String,
     val vote_average: Float,
+    val homepage: String,
     val poster_path: String
 )

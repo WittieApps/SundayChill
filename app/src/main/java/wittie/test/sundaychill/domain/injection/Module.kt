@@ -11,7 +11,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import wittie.test.sundaychill.domain.AppSharedPreferences
 import wittie.test.sundaychill.domain.BASE_URL
 import wittie.test.sundaychill.domain.MoviesAPIRetrofitInterface
-import wittie.test.sundaychill.view.MainActivityViewModel
+import wittie.test.sundaychill.view.detailsscreen.DetailsActivityViewModel
+import wittie.test.sundaychill.view.mainscreen.MainActivityViewModel
 
 private val retrofitModule = module {
 
@@ -39,6 +40,7 @@ private val viewModelModule = module {
 
     viewModel { MainActivityViewModel(get(), get(), Dispatchers.IO) }
 
+    viewModel { DetailsActivityViewModel(get(), Dispatchers.IO) }
 }
 
 val preferencesModule = module {

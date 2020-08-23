@@ -3,7 +3,10 @@
 
     <dimen name="app_margin">16dp</dimen>
     <dimen name="app_margin_half">8dp</dimen>
+    <dimen name="app_margin_double">32dp</dimen>
 
     <dimen name="list_item_image_size">72dp</dimen>
+
+    <dimen name="details_screen_image_size">128dp</dimen>
 
 </resources>

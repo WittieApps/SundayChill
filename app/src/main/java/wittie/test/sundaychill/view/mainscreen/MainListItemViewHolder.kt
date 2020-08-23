@@ -1,4 +1,4 @@
-package wittie.test.sundaychill.view
+package wittie.test.sundaychill.view.mainscreen
 
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import wittie.test.sundaychill.R
 import wittie.test.sundaychill.domain.IMAGE_URL
 import wittie.test.sundaychill.model.MovieRepresentation
+import wittie.test.sundaychill.view.OnListItemClickedInterface
 
 class MainListItemViewHolder(
     itemView: View,
