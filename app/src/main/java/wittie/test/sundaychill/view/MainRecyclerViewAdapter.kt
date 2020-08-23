@@ -6,12 +6,14 @@ import androidx.recyclerview.widget.RecyclerView
 import wittie.test.sundaychill.R
 import wittie.test.sundaychill.model.MovieRepresentation
 
-class MainRecyclerViewAdapter : RecyclerView.Adapter<MainListItemViewHolder>() {
+class MainRecyclerViewAdapter(private val onListItemClickedInterface: OnListItemClickedInterface)
+    : RecyclerView.Adapter<MainListItemViewHolder>() {
 
     private var listOfMovies = mutableListOf<MovieRepresentation>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MainListItemViewHolder(
-        LayoutInflater.from(parent.context).inflate(R.layout.movie_list_item, parent, false)
+        LayoutInflater.from(parent.context).inflate(R.layout.movie_list_item, parent, false),
+        onListItemClickedInterface
     )
 
     override fun onBindViewHolder(holder: MainListItemViewHolder, position: Int) {

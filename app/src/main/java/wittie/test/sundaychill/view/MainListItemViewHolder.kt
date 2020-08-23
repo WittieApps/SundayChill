@@ -3,12 +3,14 @@ package wittie.test.sundaychill.view
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import wittie.test.sundaychill.R
 import wittie.test.sundaychill.model.MovieRepresentation
 
-class MainListItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class MainListItemViewHolder(
+    itemView: View,
+    private val onListItemClickedInterface: OnListItemClickedInterface
+) : RecyclerView.ViewHolder(itemView) {
 
     private val imageView: ImageView = itemView.findViewById(R.id.movieItemImageView)
     private val titleTextView: TextView = itemView.findViewById(R.id.movieItemTitleTextView)
@@ -18,9 +20,7 @@ class MainListItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     private var id = -1
 
     init {
-        itemView.setOnClickListener {
-            Toast.makeText(it.context, "Clicked movie $id", Toast.LENGTH_SHORT).show()
-        }
+        itemView.setOnClickListener { onListItemClickedInterface.onListItemClicked(id) }
     }
 
     fun bind(movieRepresentation: MovieRepresentation) {
