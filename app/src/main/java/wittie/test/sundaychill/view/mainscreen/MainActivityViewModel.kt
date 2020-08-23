@@ -16,8 +16,6 @@ class MainActivityViewModel(
     private val backgroundCoroutineContext: CoroutineContext
 ) : ViewModel() {
 
-    val movieLiveData = MutableLiveData<MovieRepresentation>()
-
     val movieListLiveData = MutableLiveData<List<MovieRepresentation>>()
 
     var isSeeBestChecked: Boolean
