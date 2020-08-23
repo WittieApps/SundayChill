@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity(), OnListItemClickedInterface {
         startActivity(Intent(this, DetailsActivity::class.java).apply {
             putExtra(ARGS_MOVIE_ID, movieId)
         })
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

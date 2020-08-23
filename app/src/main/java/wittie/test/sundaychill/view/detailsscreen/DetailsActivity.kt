@@ -1,6 +1,7 @@
 package wittie.test.sundaychill.view.detailsscreen
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -45,5 +46,18 @@ class DetailsActivity : AppCompatActivity() {
                 .placeholder(R.drawable.ic_default_image_16dp)
                 .into(imageView)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        android.R.id.home -> {
+            onBackPressed()
+            true
+        }
+        else -> super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 }
