@@ -2,14 +2,14 @@ package wittie.test.sundaychill.view
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import wittie.test.sundaychill.R
 
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: MailActivityViewModel by viewModels()
+    private val viewModel: MailActivityViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
