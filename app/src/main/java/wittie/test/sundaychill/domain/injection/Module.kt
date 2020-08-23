@@ -1,11 +1,14 @@
 package wittie.test.sundaychill.domain.injection
 
+import android.content.Context
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
+import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import wittie.test.sundaychill.domain.AppSharedPreferences
 import wittie.test.sundaychill.domain.BASE_URL
 import wittie.test.sundaychill.domain.MoviesAPIRetrofitInterface
 import wittie.test.sundaychill.view.MainActivityViewModel
@@ -38,4 +41,11 @@ private val viewModelModule = module {
 
 }
 
-val appModules = listOf(retrofitModule, moviesApiModule, viewModelModule)
+val preferencesModule = module {
+
+    fun provideSharedPreferences(appContext: Context) = AppSharedPreferences(appContext)
+
+    single { provideSharedPreferences(androidApplication()) }
+}
+
+val appModules = listOf(retrofitModule, moviesApiModule, viewModelModule, preferencesModule)

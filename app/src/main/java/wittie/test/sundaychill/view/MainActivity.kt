@@ -1,19 +1,25 @@
 package wittie.test.sundaychill.view
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import wittie.test.sundaychill.R
+import wittie.test.sundaychill.domain.AppSharedPreferences
 import wittie.test.sundaychill.model.MovieRepresentation
-import kotlin.LazyThreadSafetyMode.*
+import kotlin.LazyThreadSafetyMode.NONE
 
 
 class MainActivity : AppCompatActivity(), OnListItemClickedInterface {
 
     private val viewModel: MainActivityViewModel by viewModel()
+
+    private val sharedPreferences: AppSharedPreferences by inject()
 
     private val mainSwipeRefreshLayout: SwipeRefreshLayout by lazy(NONE) { findViewById(R.id.mainSwipeRefreshLayout) }
     private val recyclerView: RecyclerView by lazy(NONE) { findViewById(R.id.mainRecyclerView) }
@@ -49,4 +55,20 @@ class MainActivity : AppCompatActivity(), OnListItemClickedInterface {
         Toast.makeText(this, "Clicked movie $movieId", Toast.LENGTH_SHORT).show()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_activity, menu)
+        val seeBestMenuItem = menu.findItem(R.id.action_see_best)
+        seeBestMenuItem.isChecked = sharedPreferences.isSeeBestChecked
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_see_best) {
+            item.isChecked = !item.isChecked
+            sharedPreferences.isSeeBestChecked = item.isChecked
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
 }

@@ -2,6 +2,8 @@
 
     <string name="app_name">SundayChill</string>
 
+    <string name="main_menu_see_best">See only the best movie</string>
+
     <string name="cd_movie_list_item">Image of the Movie</string>
 
 </resources>
