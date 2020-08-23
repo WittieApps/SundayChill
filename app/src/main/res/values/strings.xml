@@ -1,3 +1,7 @@
 <resources>
+
     <string name="app_name">SundayChill</string>
+
+    <string name="cd_movie_list_item">Image of the Movie</string>
+
 </resources>
