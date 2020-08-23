@@ -37,7 +37,7 @@ private val moviesApiModule = module {
 
 private val viewModelModule = module {
 
-    viewModel { MainActivityViewModel(get(), Dispatchers.IO) }
+    viewModel { MainActivityViewModel(get(), get(), Dispatchers.IO) }
 
 }
 
