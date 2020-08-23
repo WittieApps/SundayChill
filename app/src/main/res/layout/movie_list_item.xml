@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:background="?selectableItemBackground"
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        android:paddingHorizontal="@dimen/app_margin">
 
         <ImageView
             android:id="@+id/movieItemImageView"
@@ -30,6 +31,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/app_margin_half"
+            android:paddingHorizontal="@dimen/app_margin"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/movieItemRateTextView"
             app:layout_constraintStart_toEndOf="@id/movieItemImageView"
@@ -41,6 +43,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/app_margin_half"
+            android:ellipsize="end"
+            android:lines="4"
+            android:paddingHorizontal="@dimen/app_margin"
+            android:paddingBottom="@dimen/app_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/movieItemImageView"
