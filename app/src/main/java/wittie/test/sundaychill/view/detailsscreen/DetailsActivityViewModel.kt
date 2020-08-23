@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import wittie.test.sundaychill.domain.MoviesAPIRetrofitInterface
+import wittie.test.sundaychill.domain.toMovieDetailRepresentation
 import wittie.test.sundaychill.model.MovieDetailRepresentation
 import kotlin.coroutines.CoroutineContext
 
@@ -18,7 +19,7 @@ class DetailsActivityViewModel(
     fun loadMovieWithId(id: Int) {
         viewModelScope.launch(backgroundCoroutineContext) {
             val movieById = moviesAPIRetrofitInterface.getMovieById(id)
-            movieLiveData.postValue(movieById)
+            movieLiveData.postValue(movieById.toMovieDetailRepresentation())
         }
     }
 }

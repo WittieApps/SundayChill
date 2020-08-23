@@ -11,3 +11,12 @@ fun MovieResponse.toMovieRepresentation() = MovieRepresentation(
     vote_average = this.vote_average,
     poster_path = this.poster_path
 )
+
+fun MovieResponse.toMovieDetailRepresentation() = MovieDetailRepresentation(
+    id = this.id,
+    title = this.title,
+    overview = this.overview,
+    vote_average = this.vote_average,
+    homepage = this.homepage,
+    poster_path = this.poster_path
+)
