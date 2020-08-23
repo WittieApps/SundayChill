@@ -3,9 +3,11 @@ package wittie.test.sundaychill
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.GsonBuilder
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
-            //.addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
             .build()
 
 
@@ -34,7 +36,6 @@ class MainActivity : AppCompatActivity() {
 
         val movie550 = moviesAPIRetrofitInterface.getMovieById(550)
 
-        Log.d("HOLA", movie550.string() ?: "null")
     }
 
 }
