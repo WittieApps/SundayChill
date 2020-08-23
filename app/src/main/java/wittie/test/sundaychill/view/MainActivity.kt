@@ -9,7 +9,7 @@ import wittie.test.sundaychill.R
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: MailActivityViewModel by viewModel()
+    private val viewModel: MainActivityViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +23,16 @@ class MainActivity : AppCompatActivity() {
             ).show()
         })
 
-        viewModel.loadMovieWithId(550)
+        viewModel.movieListLiveData.observe(this, { listOfMovies ->
+            Toast.makeText(
+                this,
+                "${listOfMovies.size} movies successfully downloaded",
+                Toast.LENGTH_SHORT
+            ).show()
+        })
+
+        //viewModel.loadMovieWithId(550)
+        viewModel.loadTopRatedMovies()
     }
 
 }

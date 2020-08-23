@@ -1,13 +1,14 @@
 package wittie.test.sundaychill.domain.injection
 
 import com.google.gson.GsonBuilder
+import kotlinx.coroutines.Dispatchers
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import wittie.test.sundaychill.domain.BASE_URL
 import wittie.test.sundaychill.domain.MoviesAPIRetrofitInterface
-import wittie.test.sundaychill.view.MailActivityViewModel
+import wittie.test.sundaychill.view.MainActivityViewModel
 
 private val retrofitModule = module {
 
@@ -33,7 +34,7 @@ private val moviesApiModule = module {
 
 private val viewModelModule = module {
 
-    viewModel { MailActivityViewModel(get()) }
+    viewModel { MainActivityViewModel(get(), Dispatchers.IO) }
 
 }
 
